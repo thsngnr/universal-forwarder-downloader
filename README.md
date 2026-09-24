@@ -1,42 +1,42 @@
 # Universal Forwarder Downloader
 
-Splunk Universal Forwarder'ın Linux (amd64) `.tgz` paketlerini indirmek için
-küçük bir bash aracı. Hangi versiyonu indirmek istediğinizi bir menüden
-seçersiniz, script de doğru build hash'ini bulup paketi doğrudan
-`download.splunk.com`'dan çeker.
+A small bash tool for downloading Splunk Universal Forwarder Linux (amd64)
+`.tgz` packages. Pick the version you want from a menu, and the script
+finds the right build hash and fetches the package directly from
+`download.splunk.com`.
 
-![Menü önizlemesi](docs/menu-preview.svg)
+![Menu preview](docs/menu-preview.svg)
 
-> Yukarıdaki görsel, script'in `whiptail` ile açtığı seçim menüsünün
-> örnek/temsili bir görünümüdür (gerçek terminalden alınmış bir ekran
-> görüntüsü değildir) — gerçek görünüm terminaliniza ve `whiptail`/`dialog`
-> temanıza göre küçük farklılıklar gösterebilir.
+> The image above is an illustrative mockup of the selection menu the
+> script opens with `whiptail` (not an actual screen capture) — the real
+> look will vary slightly depending on your terminal and `whiptail`/`dialog`
+> theme.
 
-## Kullanım
+## Usage
 
 ```bash
-./uf-downloader.sh                # menüden versiyon seç
-./uf-downloader.sh 10.4.3         # versiyonu doğrudan argümanla ver
-./uf-downloader.sh 10.4.3 /opt    # ...ve indirme klasörünü belirt
+./uf-downloader.sh                # pick a version from the menu
+./uf-downloader.sh 10.4.3         # give the version directly as an argument
+./uf-downloader.sh 10.4.3 /opt    # ...and set the download directory
 ```
 
-Argümansız çalıştırıldığında:
+When run without arguments:
 
-1. `version.list` içindeki versiyonları en yeniden en eskiye doğru bir menüde listeler.
-2. Sistemde varsa `whiptail`, yoksa `dialog`, o da yoksa düz numaralı bir `select` menüsü kullanılır — yani script `whiptail`/`dialog` kurulu olmayan bir host'ta da çalışır.
-3. Seçilen versiyonun build hash'ini `version.list`'ten bulur.
-4. `https://download.splunk.com/products/universalforwarder/releases/<version>/linux/splunkforwarder-<version>-<build>-linux-amd64.tgz` adresinden indirir.
-5. İndirilen dosyanın boş olmadığını doğrular; hata varsa yarım kalan dosyayı siler.
+1. It lists the versions in `version.list`, newest to oldest, in a menu.
+2. It uses `whiptail` if installed, `dialog` if not, or a plain numbered `select` menu as a last resort — so it still runs on a host without `whiptail`/`dialog`.
+3. It looks up the chosen version's build hash in `version.list`.
+4. It downloads from `https://download.splunk.com/products/universalforwarder/releases/<version>/linux/splunkforwarder-<version>-<build>-linux-amd64.tgz`.
+5. It verifies the downloaded file isn't empty; on any error it removes the partial file.
 
 ## version.list
 
-`version.list`, Splunk'ın sitesinde (güncel + previous-releases sayfaları)
-hâlâ gerçekten yayında olan Universal Forwarder versiyon/build hash
-eşleşmelerini içerir (CSV: `version,build`). Artık indirilemeyen eski
-versiyonlar listede tutulmaz — yeni bir Splunk sürümü çıktığında bu dosyayı
-güncellemek gerekir.
+`version.list` contains the Universal Forwarder version/build-hash pairs
+that are still actually live on Splunk's site (current + previous-releases
+pages), as CSV: `version,build`. Versions that are no longer downloadable
+are not kept in the list — this file needs updating whenever a new Splunk
+release ships.
 
-## Gereksinimler
+## Requirements
 
 - `bash`, `curl`
-- (opsiyonel, daha iyi menü için) `whiptail` veya `dialog`
+- (optional, for a nicer menu) `whiptail` or `dialog`

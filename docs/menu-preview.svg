@@ -21,24 +21,25 @@
   <rect x="120" y="95" width="480" height="24" fill="#d4d4d4"/>
   <text x="360" y="112" fill="#000000" font-size="14" font-weight="bold" text-anchor="middle">Universal Forwarder Downloader</text>
 
-  <text x="140" y="140" fill="#000000" font-size="13">Hangi Universal Forwarder versiyonunu indirmek istersiniz?</text>
+  <text x="140" y="133" fill="#000000" font-size="13">Which Universal Forwarder version</text>
+  <text x="140" y="148" fill="#000000" font-size="13">would you like to download?</text>
 
   <!-- menu items -->
-  <rect x="140" y="155" width="440" height="20" fill="#000080"/>
-  <text x="150" y="170" fill="#ffffff" font-size="13">10.4.3        build 4174a2deda5d</text>
+  <rect x="140" y="160" width="440" height="20" fill="#000080"/>
+  <text x="150" y="175" fill="#ffffff" font-size="13">10.4.3        build 4174a2deda5d</text>
 
-  <text x="150" y="192" fill="#000000" font-size="13">10.4.2        build 33c3bf42cd73</text>
-  <text x="150" y="212" fill="#000000" font-size="13">10.4.1        build 5a009d941268</text>
-  <text x="150" y="232" fill="#000000" font-size="13">10.4.0        build f798d4d49089</text>
-  <text x="150" y="252" fill="#000000" font-size="13">10.2.7        build c0bff5b0fac3</text>
-  <text x="150" y="272" fill="#000000" font-size="13">10.2.6        build bcdcf0552e0c</text>
-  <text x="150" y="292" fill="#666666" font-size="13">...                                           </text>
+  <text x="150" y="197" fill="#000000" font-size="13">10.4.2        build 33c3bf42cd73</text>
+  <text x="150" y="215" fill="#000000" font-size="13">10.4.1        build 5a009d941268</text>
+  <text x="150" y="233" fill="#000000" font-size="13">10.4.0        build f798d4d49089</text>
+  <text x="150" y="251" fill="#000000" font-size="13">10.2.7        build c0bff5b0fac3</text>
+  <text x="150" y="269" fill="#000000" font-size="13">10.2.6        build bcdcf0552e0c</text>
+  <text x="150" y="287" fill="#666666" font-size="13">...                                           </text>
 
   <!-- buttons -->
-  <rect x="260" y="345" width="80" height="24" fill="#b0b0b0" stroke="#000000"/>
-  <text x="300" y="362" fill="#000000" font-size="13" text-anchor="middle">&lt;Seç&gt;</text>
-  <rect x="380" y="345" width="80" height="24" fill="#b0b0b0" stroke="#000000"/>
-  <text x="420" y="362" fill="#000000" font-size="13" text-anchor="middle">&lt;İptal&gt;</text>
+  <rect x="255" y="345" width="90" height="24" fill="#b0b0b0" stroke="#000000"/>
+  <text x="300" y="362" fill="#000000" font-size="13" text-anchor="middle">&lt;Select&gt;</text>
+  <rect x="375" y="345" width="90" height="24" fill="#b0b0b0" stroke="#000000"/>
+  <text x="420" y="362" fill="#000000" font-size="13" text-anchor="middle">&lt;Cancel&gt;</text>
 
   <text x="30" y="450" fill="#6ee7b7" font-size="12">$ ./uf-downloader.sh</text>
 </svg>

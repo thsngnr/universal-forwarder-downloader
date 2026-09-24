@@ -39,7 +39,7 @@ choose_version_menu() {
 
     if command -v whiptail >/dev/null 2>&1; then
         whiptail --title "$TITLE" \
-            --menu "Hangi Universal Forwarder versiyonunu indirmek istersiniz?" \
+            --menu "Which Universal Forwarder version would you like to download?" \
             20 60 12 "${items[@]}" \
             3>&1 1>&2 2>&3
         return
@@ -47,7 +47,7 @@ choose_version_menu() {
 
     if command -v dialog >/dev/null 2>&1; then
         dialog --title "$TITLE" \
-            --menu "Hangi Universal Forwarder versiyonunu indirmek istersiniz?" \
+            --menu "Which Universal Forwarder version would you like to download?" \
             20 60 12 "${items[@]}" \
             3>&1 1>&2 2>&3
         return
@@ -58,22 +58,22 @@ choose_version_menu() {
     echo >&2
     local versions=()
     while IFS=, read -r v _; do versions+=("$v"); done < <(versions_newest_first)
-    PS3="Hangi versiyonu indirmek istersiniz? (numara girin) "
+    PS3="Which version would you like to download? (enter a number) "
     select v in "${versions[@]}"; do
         [[ -n "$v" ]] && { echo "$v"; return; }
-        echo "Geçersiz seçim, tekrar deneyin." >&2
+        echo "Invalid choice, try again." >&2
     done
 }
 
 if [[ -z "$version" ]]; then
     version="$(choose_version_menu)"
-    [[ -z "$version" ]] && { echo "İptal edildi." >&2; exit 1; }
+    [[ -z "$version" ]] && { echo "Cancelled." >&2; exit 1; }
 fi
 
 build=$(awk -F, -v v="$version" '$1 == v {print $2}' "$VERSION_LIST")
 
 if [[ -z "$build" ]]; then
-    echo "error: '$version' version.list içinde yok / not a listed, available version" >&2
+    echo "error: '$version' is not a listed, available version" >&2
     exit 1
 fi
 
@@ -83,20 +83,20 @@ mkdir -p "$outdir"
 dest="$outdir/$filename"
 
 echo
-echo "İndiriliyor: $url"
+echo "Downloading: $url"
 if ! curl -fSL --retry 3 -o "$dest" "$url"; then
-    echo "error: indirme başarısız (Splunk sitesinde bu paket artık olmayabilir)" >&2
+    echo "error: download failed (this package may no longer be on the Splunk site)" >&2
     rm -f "$dest"
     exit 1
 fi
 
 size=$(wc -c < "$dest")
 if [[ "$size" -eq 0 ]]; then
-    echo "error: indirilen dosya boş, siliniyor" >&2
+    echo "error: downloaded file is empty, removing it" >&2
     rm -f "$dest"
     exit 1
 fi
 
 echo
-echo "Tamamlandı: $dest ($size bytes)"
+echo "Done: $dest ($size bytes)"
 echo

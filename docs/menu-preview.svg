@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="460" viewBox="0 0 720 460" font-family="Consolas, 'Courier New', monospace">
+  <!-- terminal window chrome -->
+  <rect x="0" y="0" width="720" height="460" rx="8" fill="#1e1e1e"/>
+  <rect x="0" y="0" width="720" height="28" rx="8" fill="#3a3a3a"/>
+  <circle cx="18" cy="14" r="6" fill="#ff5f56"/>
+  <circle cx="40" cy="14" r="6" fill="#ffbd2e"/>
+  <circle cx="62" cy="14" r="6" fill="#27c93f"/>
+  <text x="360" y="19" fill="#cccccc" font-size="13" text-anchor="middle">user@host: ~/universal-forwarder-downloader</text>
+
+  <!-- whiptail hashed background -->
+  <rect x="20" y="48" width="680" height="392" fill="#008080"/>
+  <g fill="#00979e">
+    <text x="30" y="65" font-size="12">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</text>
+    <text x="30" y="80" font-size="12">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</text>
+    <text x="30" y="415" font-size="12">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</text>
+    <text x="30" y="430" font-size="12">:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</text>
+  </g>
+
+  <!-- dialog box -->
+  <rect x="120" y="95" width="480" height="300" fill="#d4d4d4" stroke="#000000" stroke-width="1"/>
+  <rect x="120" y="95" width="480" height="24" fill="#d4d4d4"/>
+  <text x="360" y="112" fill="#000000" font-size="14" font-weight="bold" text-anchor="middle">Universal Forwarder Downloader</text>
+
+  <text x="140" y="140" fill="#000000" font-size="13">Hangi Universal Forwarder versiyonunu indirmek istersiniz?</text>
+
+  <!-- menu items -->
+  <rect x="140" y="155" width="440" height="20" fill="#000080"/>
+  <text x="150" y="170" fill="#ffffff" font-size="13">10.4.3        build 4174a2deda5d</text>
+
+  <text x="150" y="192" fill="#000000" font-size="13">10.4.2        build 33c3bf42cd73</text>
+  <text x="150" y="212" fill="#000000" font-size="13">10.4.1        build 5a009d941268</text>
+  <text x="150" y="232" fill="#000000" font-size="13">10.4.0        build f798d4d49089</text>
+  <text x="150" y="252" fill="#000000" font-size="13">10.2.7        build c0bff5b0fac3</text>
+  <text x="150" y="272" fill="#000000" font-size="13">10.2.6        build bcdcf0552e0c</text>
+  <text x="150" y="292" fill="#666666" font-size="13">...                                           </text>
+
+  <!-- buttons -->
+  <rect x="260" y="345" width="80" height="24" fill="#b0b0b0" stroke="#000000"/>
+  <text x="300" y="362" fill="#000000" font-size="13" text-anchor="middle">&lt;Seç&gt;</text>
+  <rect x="380" y="345" width="80" height="24" fill="#b0b0b0" stroke="#000000"/>
+  <text x="420" y="362" fill="#000000" font-size="13" text-anchor="middle">&lt;İptal&gt;</text>
+
+  <text x="30" y="450" fill="#6ee7b7" font-size="12">$ ./uf-downloader.sh</text>
+</svg>
